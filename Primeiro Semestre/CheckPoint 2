@@ -1,0 +1,62 @@
+# 1)
+# a) [1 pt] Solicite dois números ao usuário: n1 e n2.
+# Estes números deverão ser inteiros e n1 deve ser maior do que n2.
+
+
+
+
+# b) [1pt] Realize e imprima a soma de todos os números de n1 (inclusive) até n2 (exclusive)
+
+#n1>n2
+soma=0 #porque é o valor neutro da soma
+for i in range(n1,n2,-1):  # ou range(n2+1, n1+1) começando do menor e indo pro maior, excluindo n2.
+    soma+=i
+    print(soma)
+
+
+# 3) Solicite dois números ao usuário: n1 e n2.
+# a) [1.5 pts] n1 deve ser par e positivo; e n2 deve ser ímpar e negativo.
+# enquanto o usuário digitar um número que não atenda a estas condições,
+# o programa deverá dizer exatamente qual característica do número não estava de acordo com o que foi solicitado.
+
+n1 = float(input("Digite um número par e positivo: "))
+while n1 % 2 != 0 or n1 < 0:
+    if n1%2!=0 and n1<0:
+        print("O número que você digitou é ímpar e negativo.")
+        n1 = float(input("Digite um número par e positivo: "))
+    elif n1<0:
+        print("O número que você digitou é negativo.")
+        n1 = float(input("Digite um número par e positivo: "))
+    else: # n1%2!=0 (apenas ímpar)
+        print("O número que você digitou é ímpar.")
+        n1 = float(input("Digite um número par e positivo: "))
+
+
+n2 = float(input("Digite um número ímpar e negativo: "))
+while True:
+    if n2 % 2 == 1 and n2 < 0: break
+
+    elif n2 % 2 != 1 and n2 >= 0:
+        print("Você digitou um número par e positivo.")
+        n2 = float(input("Digite um número ímpar e negativo: "))
+
+    elif n2 % 2 != 1:
+        print("Você digitou um número par.")
+        n2 = float(input("Digite um número ímpar e negativo: "))
+
+    else:
+        print("Você digitou um número positivo.")
+        n2 = float(input("Digite um número ímpar e negativo: "))
+
+# b) [2 pts] Caso algum dos dois (ou os dois) não sejam números inteiros,
+# diga qual o número inteiros mais próximo a ele.
+
+if n1 != int(n1):
+    if n1-int(n1)>=0.5:
+        print(int(n1)+1)
+    else: print(int(n1))
+    
+if n2 != int(n2):
+    if n2-int(n2)>=0.5:
+        print(int(n2)+1)
+    else: print(int(n2))
