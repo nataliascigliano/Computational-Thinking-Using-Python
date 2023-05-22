@@ -1,0 +1,154 @@
+DEF nome(arg):
+	[...] -> aqui vão as linhas de código do programa
+RETURN VARIÁVEL(S) -> possui o return para retornar, porque senão as coisas vão ficar ali dentro e só.
+
+
+n = 657.7387289
+
+print(f"{n:.2f}")
+
+def print_formatado(numero):
+    print(f"{numero:.2f}")
+
+#executar (chamar) a função:
+
+print_formatado(n) #aqui tem que ser uma varável já existente
+
+print_formatado(222.4738267)
+
+n1 = float(input("Digite um número: "))
+
+def solicita_numero():
+    numero = float(input("Digite um número: "))
+    return numero
+
+#igual se salva na memória algo, por exemplo "conta_multiplicacao = 2*4"
+#se salva a função na variável de memória para usar posteriormente
+n2 = solicita_numero()
+print("Você digitou o número: ", n2)
+
+
+//exemplo utilizando função, apenas utilizando o n1:
+
+n1 = float(input("Digite um número: "))
+
+def solicita_numero(condicao):
+    numero = float(input("Digite um número {}: ".format(condicao)))
+    return numero
+
+
+def verifica_numero_par(numero):
+    while numero%2!=0:
+        print("Você não digitou um número par.")
+        numero = solicita_numero('par')
+    return numero
+
+n1 = solicita_numero('par')
+n1 = verifica_numero_par(n1)
+
+
+#DOCUMENTAÇÃO
+
+def print_formatado(numero):
+#digita três aspas ''' e dá enter, que essa documentação entra automaticamente
+    '''
+    função que imprime o número com exatamente 3 casas decimais.
+    :param numero: float ou int
+    :return: none (apenas imprime
+    '''
+    print(f"{numero:.3f}")
+
+def calcula_dobro(n):
+    '''
+    Função que calcula e retorna o dobro do número
+    :param n: Numeral
+    :return: o dobro de N
+    '''
+    dobro = 2*n
+    return dobro
+
+print_formatado(2.462562)
+valor = calcula_dobro(10)
+print(valor)
+
+# *ARGS **KWARGS (Keywords Args)
+
+#se esrecreve com o asterístico (*args), no lugar do "args" pode escrever qualquer coisa, mas tem que ter * antes.
+#essa função possibilita ao usuário escrever quantos parâmetros ele quiser.
+
+def soma_todos_numeros(*args)
+    soma=0
+    for i in args:
+        soma+=1
+    return soma
+
+def cadastro_interesses(**kwargs)
+    print(kwargs)
+
+def procura_livro(**kwargs):
+    '''
+    função que busca por autor e/ou ano da publicação
+    :param kwargs:
+    :return:
+    '''
+
+    if type(kwargs) == int:
+    elif type(kwargs) == "string":
+
+procura_livro(autor = "edgar alan poe")
+procura_livro(ano_publicacao = 1985)
+
+
+
+soma = soma_todos_numeros(1,2,3,4,5)
+print(soma)
+
+#ARGUMENTOS PRÉ-DEFINIDOS
+
+def calcula_dobro(n=0):
+## def calcula_dobro(n=float(input("Digite um número")))
+    dobro = 2*n
+    return dobro
+
+valor = calcula_dobro()
+print(valor)
+
+
+#VER EXERCICIOS FEITOS DESSA AULA
+
+
+##CONTINUAÇÃO AULA DE FUNÇÕES, DO DIA 09/05/23
+
+# #EXERCÍCIOS
+# #1)A) Crie uma função que retorne a soma e a multiplicação dos parâmetros
+#
+def soma_e_multiplicacao(*args):
+    soma = 0
+    multiplicacao = 1
+    for i in args:
+        soma += i
+        multiplicacao += i
+        print(i)
+    return soma, multiplicacao
+
+soma_e_multiplicacao(1,2,3)
+
+#1)b) modifique a função anterior para que ela receba como argumento o tipo de operação
+#que queremos fazer (soma ou multiplicação) e retorne APENAS o que foi pedido.
+
+def soma_e_multiplicacao(operacao, *args): #a ordem aqui sempre importa
+    if operacao=="soma":
+        soma = 0
+        for i in args:
+            soma += i
+        return soma
+    elif operacao=="multiplicação":
+        for i in args:
+            multiplicacao *= i
+        return multiplicacao
+    else: return "Erro"
+
+    return soma, multiplicacao
+
+resultado = soma_e_multiplicacao("Soma: ",5,5,9,6,0.85,666)
+print(resultado)
